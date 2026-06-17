@@ -15,7 +15,7 @@
 
 This document describes the build and release process for the **FIDO Device Onboard (FDO) Protocol Reference Implementation (PRI)** repository (`pri-fidoiot`). The project is a Java-based implementation of the FDO specification, consisting of multiple components including protocol core, device samples, and service components (Manufacturer, Rendezvous, Owner, Reseller).
 
-**Current Version:** 1.1.10
+**Current Version:** 1.1.11
 
 **Repository:** https://github.com/fido-device-onboard/pri-fidoiot
 
@@ -81,7 +81,7 @@ The project follows a Maven multi-module structure:
 
 ```
 pri-fidoiot/
-├── pom.xml                    # Root POM (version 1.1.10)
+├── pom.xml                    # Root POM (version 1.1.11)
 ├── protocol/                  # Protocol core module
 │   └── pom.xml
 ├── component-samples/         # Component samples
@@ -661,4 +661,4 @@ Monitor and apply security updates:
 
 **Document Version:** 1.0  
 **Last Updated:** 2026-06-16  
-**Applicable to PRI Version:** 1.1.10
+**Applicable to PRI Version:** 1.1.11
