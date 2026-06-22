@@ -104,11 +104,11 @@ public class CertificateApi extends RestApi {
       certificateData = new CertificateData();
       certificateData.setName(fileName);
       certificateData.setData(keyStoreFile);
-      getSession().save(certificateData);
+      getSession().persist(certificateData);
     } else {
       // Update the row, if filename already exists.
       certificateData.setData(keyStoreFile);
-      getSession().update(certificateData);
+      getSession().merge(certificateData);
     }
 
   }
@@ -127,7 +127,7 @@ public class CertificateApi extends RestApi {
 
     if (certificateData != null) {
       // delete the row, if data exists.
-      getSession().delete(certificateData);
+      getSession().remove(certificateData);
     } else {
       logger.warn("Keystore file not found.");
       getResponse().setStatus(HttpServletResponse.SC_BAD_REQUEST);

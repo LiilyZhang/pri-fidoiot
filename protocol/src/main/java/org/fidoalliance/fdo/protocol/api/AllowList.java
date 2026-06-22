@@ -42,12 +42,12 @@ public class AllowList extends RestApi {
 
       allowList.setAllowed(true);
       allowList.setHash(hashKey);
-      getSession().update(allowList);
+      getSession().merge(allowList);
     } else {
       allowList = new AllowDenyList();
       allowList.setHash(hashKey);
       allowList.setAllowed(true);
-      getSession().save(allowList);
+      getSession().persist(allowList);
     }
     getTransaction().commit();
     logger.debug("Updated AllowList Table");
@@ -70,7 +70,7 @@ public class AllowList extends RestApi {
 
     if (allowList != null) {
       // delete the row, if data exists.
-      getSession().delete(allowList);
+      getSession().remove(allowList);
       logger.warn("Deleted from AllowList Table");
     } else {
       logger.warn("Certificate not found.");

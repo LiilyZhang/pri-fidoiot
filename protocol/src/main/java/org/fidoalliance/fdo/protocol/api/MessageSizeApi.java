@@ -80,11 +80,11 @@ public class MessageSizeApi extends RestApi {
       config.setMaxServiceInfoSize(null);
       config.setReplacementRvInfo(null);
       config.setMaxMessageSize(messageSize);
-      getSession().save(config);
+      getSession().persist(config);
     } else {
       // Update value of MAX_MESSAGE_SIZE column in ONBOARDING_CONFIG table.
       config.setMaxMessageSize(messageSize);
-      getSession().update(config);
+      getSession().merge(config);
     }
 
   }

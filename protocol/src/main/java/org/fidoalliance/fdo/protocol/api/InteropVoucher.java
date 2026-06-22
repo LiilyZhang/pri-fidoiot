@@ -120,10 +120,10 @@ public class InteropVoucher extends RestApi {
         dbVoucher.setGuid(guid.toString());
         dbVoucher.setData(Mapper.INSTANCE.writeValue(voucher));
         dbVoucher.setCreatedOn(new Date(System.currentTimeMillis()));
-        getSession().save(dbVoucher);
+        getSession().persist(dbVoucher);
       } else {
         dbVoucher.setData(Mapper.INSTANCE.writeValue(voucher));
-        getSession().update(dbVoucher);
+        getSession().merge(dbVoucher);
       }
       //save the voucher
       //todo: need to do TO0 manually

@@ -44,11 +44,11 @@ public class RvInfo extends RestApi {
     if (rviData == null) {
       rviData = new RvData();
       rviData.setData(getSession().getLobHelper().createClob(body));
-      getSession().save(rviData);
+      getSession().persist(rviData);
 
     } else {
       rviData.setData(getSession().getLobHelper().createClob(body));
-      getSession().update(rviData);
+      getSession().merge(rviData);
     }
   }
 }

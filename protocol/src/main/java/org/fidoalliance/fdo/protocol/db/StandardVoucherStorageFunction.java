@@ -39,7 +39,7 @@ public class StandardVoucherStorageFunction implements VoucherStorageFunction {
 
       Transaction trans = session.beginTransaction();
       mfgVoucher.setData(data);
-      session.saveOrUpdate(mfgVoucher);
+      session.merge(mfgVoucher);
       trans.commit();
 
       OwnershipVoucherHeader header =

@@ -3,12 +3,13 @@
 
 package org.fidoalliance.fdo.protocol.api;
 
-import jakarta.servlet.http.HttpServletResponse;
 import org.fidoalliance.fdo.protocol.LoggerService;
 import org.fidoalliance.fdo.protocol.Mapper;
 import org.fidoalliance.fdo.protocol.db.FdoSysInstruction;
 import org.fidoalliance.fdo.protocol.entity.SystemPackage;
-import org.hibernate.engine.jdbc.ClobProxy;
+import org.hibernate.engine.jdbc.proxy.ClobProxy;
+
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Maintains Service Info Packages.

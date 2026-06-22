@@ -53,7 +53,7 @@ public class StandardServerSessionManager implements SessionManager {
       protocolSession.setCreatedOn(Date.from(Instant.now()));
       protocolSession.setData(session.getLobHelper().createBlob(
           Mapper.INSTANCE.writeValue(storage)));
-      session.save(protocolSession);
+      session.persist(protocolSession);
       trans.commit();
     } finally {
       session.close();
@@ -70,7 +70,7 @@ public class StandardServerSessionManager implements SessionManager {
       protocolSession.setCreatedOn(Date.from(Instant.now()));
       protocolSession.setData(session.getLobHelper().createBlob(
           Mapper.INSTANCE.writeValue(storage)));
-      session.update(protocolSession);
+      session.persist(protocolSession);
       trans.commit();
     } finally {
       session.close();
@@ -86,7 +86,7 @@ public class StandardServerSessionManager implements SessionManager {
       ProtocolSession protocolSession = session.get(ProtocolSession.class, name);
       if (protocolSession != null) {
 
-        session.delete(protocolSession);
+        session.remove(protocolSession);
       }
       trans.commit();
 

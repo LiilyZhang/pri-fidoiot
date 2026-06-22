@@ -41,7 +41,7 @@
     <junit-jupiter.version>6.0.3</junit-jupiter.version>
     <log4j.version>2.25.3</log4j.version>
     <slf4j.version>2.0.17</slf4j.version>
-    <hibernate.version>6.6.53.Final</hibernate.version>
+    <hibernate.version>7.4.1.Final</hibernate.version>
     <tomcat.version>11.0.18</tomcat.version>
     <apache-httpcomponents.version>4.5.14</apache-httpcomponents.version>
     <snakeyaml.version>2.6</snakeyaml.version>
@@ -192,8 +192,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${maven-compiler-plugin.version}</version>
         <configuration>
-          <source>11</source>
-          <target>11</target>
+          <source>17</source>
+          <target>17</target>
         </configuration>
       </plugin>
 

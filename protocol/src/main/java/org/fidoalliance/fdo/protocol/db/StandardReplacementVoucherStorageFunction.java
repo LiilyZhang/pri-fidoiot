@@ -38,7 +38,7 @@ public class StandardReplacementVoucherStorageFunction implements
           onboardingVoucher.setReplacement(null);
         }
         onboardingVoucher.setTo2CompletedOn(new Date(System.currentTimeMillis()));
-        session.update(onboardingVoucher);
+        session.merge(onboardingVoucher);
         trans.commit();
       }
       if (voucher2.getHmac() != null) {

@@ -65,12 +65,12 @@ public class To2Blob extends RestApi {
       onboardingConfig = new OnboardingConfig();
       onboardingConfig.setRvBlob(getSession().getLobHelper()
           .createClob(body));
-      getSession().save(onboardingConfig);
+      getSession().persist(onboardingConfig);
 
     } else {
       onboardingConfig.setRvBlob(getSession().getLobHelper()
           .createClob(body));
-      getSession().update(onboardingConfig);
+      getSession().merge(onboardingConfig);
     }
   }
 }

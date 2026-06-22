@@ -70,11 +70,11 @@ public class SystemResourceApi extends RestApi {
       sviResource = new SystemResource();
       sviResource.setName(fileName);
       sviResource.setData(new SerialBlob(sviResourceFile));
-      getSession().save(sviResource);
+      getSession().persist(sviResource);
     } else {
       // Update the row, if filename already exists.
       sviResource.setData(new SerialBlob(sviResourceFile));
-      getSession().update(sviResource);
+      getSession().merge(sviResource);
     }
 
   }
@@ -93,7 +93,7 @@ public class SystemResourceApi extends RestApi {
 
     if (sviResource != null) {
       // delete the row, if data exists.
-      getSession().delete(sviResource);
+      getSession().remove(sviResource);
     } else {
       logger.warn("SVI resource file not found.");
       getResponse().setStatus(HttpServletResponse.SC_BAD_REQUEST);

@@ -36,7 +36,7 @@ public class ManufacturingInfoStorageFunction {
       }
       Transaction trans = session.beginTransaction();
       mfgVoucher.setMacAddresses(macAddresses);
-      session.saveOrUpdate(mfgVoucher);
+      session.merge(mfgVoucher);
       trans.commit();
     } catch (NotFoundException e) {
       throw new RuntimeException(e);

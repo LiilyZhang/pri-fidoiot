@@ -43,13 +43,13 @@ public class StandardRvBlobStorageFunction implements RvBlobStorageFunction {
                 + Duration.ofSeconds(waitSeconds).toMillis()));
         redirect.setCreatedOn(new Date(System.currentTimeMillis()));
 
-        session.save(redirect);
+        session.persist(redirect);
       } else {
         redirect.setData(data);
         redirect.setExpiry(
             new Date(System.currentTimeMillis()
                 + Duration.ofSeconds(waitSeconds).toMillis()));
-        session.update(redirect);
+        session.merge(redirect);
       }
       trans.commit();
 

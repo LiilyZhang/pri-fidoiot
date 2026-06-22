@@ -73,11 +73,11 @@ public class AioRvInfo extends RestApi {
         logger.info("Inserting data into RV_DATA");
         rviData = new RvData();
         rviData.setData(getSession().getLobHelper().createClob(rvi));
-        getSession().save(rviData);
+        getSession().persist(rviData);
       } else {
         // if data exist in DB, update RV_INFO table with new RVInfo_blob.
         rviData.setData(getSession().getLobHelper().createClob(rvi));
-        getSession().update(rviData);
+        getSession().persist(rviData);
       }
     } catch (Exception e) {
       logger.error("Unable to update RVInfo");

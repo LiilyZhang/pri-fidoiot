@@ -31,7 +31,7 @@ public class StandardAcceptOwnerFunction implements AcceptOwnerFunction {
       if (onboardingVoucher != null) {
         final Transaction trans = session.beginTransaction();
         onboardingVoucher.setTo0Expiry(expiry);
-        session.update(onboardingVoucher);
+        session.merge(onboardingVoucher);
         trans.commit();
         logger.info("TO0 completed for GUID: " + guid);
       }

@@ -79,11 +79,11 @@ public class SviSizeApi extends RestApi {
       config.setMaxMessageSize(null);
       config.setReplacementRvInfo(null);
       config.setMaxServiceInfoSize(messageSize);
-      getSession().save(config);
+      getSession().persist(config);
     } else {
       // Update value of MAX_SERVICEINFO_SIZE column in ONBOARDING_CONFIG table.
       config.setMaxServiceInfoSize(messageSize);
-      getSession().update(config);
+      getSession().merge(config);
     }
 
   }

@@ -41,12 +41,12 @@ public class DenyList extends RestApi {
 
       allowList.setAllowed(false);
       allowList.setHash(hashKey);
-      getSession().update(allowList);
+      getSession().merge(allowList);
     } else {
       allowList = new AllowDenyList();
       allowList.setHash(hashKey);
       allowList.setAllowed(false);
-      getSession().save(allowList);
+      getSession().persist(allowList);
     }
     getTransaction().commit();
     logger.debug("Updated AllowList Table");

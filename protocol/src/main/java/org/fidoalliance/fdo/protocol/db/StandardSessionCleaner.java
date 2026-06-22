@@ -65,7 +65,7 @@ public class StandardSessionCleaner implements Closeable {
         Date created = protocolSession.getCreatedOn();
         long dur = Duration.between(created.toInstant(), now.toInstant()).toSeconds();
         if (dur > expiresSeconds) {
-          session.delete(protocolSession);
+          session.remove(protocolSession);
           if (!reported) {
             logger.info("expired session removed");
             reported = true;

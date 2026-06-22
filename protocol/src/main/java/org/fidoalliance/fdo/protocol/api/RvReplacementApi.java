@@ -59,12 +59,12 @@ public class RvReplacementApi extends RestApi {
       onboardingConfig = new OnboardingConfig();
       onboardingConfig.setReplacementRvInfo(getSession().getLobHelper()
           .createClob(body));
-      getSession().save(onboardingConfig);
+      getSession().persist(onboardingConfig);
 
     } else {
       onboardingConfig.setReplacementRvInfo(getSession().getLobHelper()
           .createClob(body));
-      getSession().update(onboardingConfig);
+      getSession().merge(onboardingConfig);
     }
   }
 }

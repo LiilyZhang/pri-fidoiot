@@ -61,11 +61,11 @@ public class CertificateValidityApi extends RestApi {
       if (certificateValidity == null) {
         certificateValidity = new CertificateValidity();
         certificateValidity.setDays(parsedDays);
-        getSession().save(certificateValidity);
+        getSession().persist(certificateValidity);
         logger.info("Certificate Validity value updated to " + parsedDays);
       } else {
         certificateValidity.setDays(parsedDays);
-        getSession().update(certificateValidity);
+        getSession().merge(certificateValidity);
       }
     } catch (NumberFormatException e) {
       logger.error("Invalid days parameter provided");
